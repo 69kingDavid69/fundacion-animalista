@@ -1,3 +1,59 @@
+        // Toast Notification System
+        function createToastContainer() {
+            let container = document.querySelector('.toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
+            return container;
+        }
+
+        function showToast(message, type = 'info', title = '', duration = 4000) {
+            const container = createToastContainer();
+
+            const icons = {
+                error: '❌',
+                warning: '⚠️',
+                success: '✅',
+                info: 'ℹ️'
+            };
+
+            const titles = {
+                error: title || 'Error',
+                warning: title || 'Atención',
+                success: title || '¡Listo!',
+                info: title || 'Información'
+            };
+
+            const toast = document.createElement('div');
+            toast.className = `toast toast--${type}`;
+            toast.innerHTML = `
+                <span class="toast__icon">${icons[type] || icons.info}</span>
+                <div class="toast__body">
+                    <div class="toast__title">${titles[type]}</div>
+                    <div class="toast__message">${message}</div>
+                </div>
+                <button class="toast__close" aria-label="Cerrar">&times;</button>
+            `;
+
+            container.appendChild(toast);
+
+            const closeBtn = toast.querySelector('.toast__close');
+            const remove = () => {
+                toast.classList.add('hiding');
+                setTimeout(() => {
+                    if (toast.parentNode) toast.remove();
+                }, 300);
+            };
+
+            closeBtn.addEventListener('click', remove);
+
+            if (duration > 0) {
+                setTimeout(remove, duration);
+            }
+        }
+
         // Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
@@ -30,7 +86,7 @@
         // Form submission
         document.querySelector('.contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            showToast('Te contactaremos pronto.', 'success', '¡Mensaje enviado!');
             e.target.reset();
         });
 
@@ -64,7 +120,7 @@
 
         openPaymentBtn.addEventListener('click', () => {
             if (selectedDonationAmount === 0) {
-                alert('Por favor selecciona un monto de donación primero');
+                showToast('Selecciona un monto de donación antes de continuar.', 'warning', 'Monto requerido');
                 return;
             }
 
@@ -73,7 +129,7 @@
                 if (customAmount && !isNaN(customAmount) && parseInt(customAmount) > 0) {
                     selectedDonationAmount = parseInt(customAmount);
                 } else {
-                    alert('Por favor ingresa un monto válido');
+                    showToast('Ingresa solo números positivos (ej: 50000).', 'error', 'Monto inválido');
                     return;
                 }
             }
