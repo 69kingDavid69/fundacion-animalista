@@ -76,8 +76,13 @@
 
         .logo-img {
             object-fit: cover;
-            object-position: center 55%;
-            transform: scale(1.3);
+            object-position: center 70%;
+            width: 135%;
+            height: 135%;
+            max-width: none;
+            margin-left: -17.5%;
+            margin-top: -14%;
+            display: block;
         }
 
         .logo-fallback {
@@ -1227,8 +1232,18 @@ footer {
                 font-size: 1.15rem;
             }
 
-            .logo-img-wrapper,
-            .logo-img,
+            .logo-img-wrapper {
+                width: 56px;
+                height: 56px;
+            }
+
+            .logo-img {
+                width: 135%;
+                height: 135%;
+                margin-left: -17.5%;
+                margin-top: -14%;
+            }
+
             .logo-svg,
             .logo-fallback {
                 width: 56px;
