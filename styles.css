@@ -76,12 +76,9 @@
 
         .logo-img {
             object-fit: cover;
-            object-position: center 90%;
-            width: 128%;
-            height: 128%;
-            max-width: none;
-            margin-left: -14%;
-            margin-top: -24%;
+            object-position: center center;
+            width: 100%;
+            height: 100%;
             display: block;
         }
 
@@ -1238,10 +1235,8 @@ footer {
             }
 
             .logo-img {
-                width: 128%;
-                height: 128%;
-                margin-left: -14%;
-                margin-top: -24%;
+                width: 100%;
+                height: 100%;
             }
 
             .logo-svg,
