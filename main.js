@@ -91,7 +91,68 @@
         });
 
 
-        // Donation System
+        // ─── Custom Amount Modal ───────────────────────────────────────────────
+        const customAmountOverlay = document.getElementById('customAmountOverlay');
+        const customAmountInput = document.getElementById('customAmountInput');
+        const customAmountConfirm = document.getElementById('customAmountConfirm');
+        const customAmountCancel = document.getElementById('customAmountCancel');
+        const customAmountClose = document.getElementById('customAmountClose');
+        let customAmountResolve = null;
+
+        function openCustomAmountModal() {
+            customAmountOverlay.classList.add('active');
+            customAmountInput.value = '';
+            customAmountInput.focus();
+            document.body.style.overflow = 'hidden';
+
+            return new Promise((resolve) => {
+                customAmountResolve = resolve;
+            });
+        }
+
+        function closeCustomAmountModal() {
+            customAmountOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            customAmountInput.blur();
+        }
+
+        function confirmCustomAmount() {
+            const value = customAmountInput.value.trim();
+            if (!value || isNaN(value) || parseInt(value) <= 0) {
+                showToast('Ingresa solo números positivos (ej: 50000).', 'error', 'Monto inválido');
+                customAmountInput.focus();
+                return;
+            }
+            const amount = parseInt(value);
+            closeCustomAmountModal();
+            if (customAmountResolve) {
+                customAmountResolve(amount);
+                customAmountResolve = null;
+            }
+        }
+
+        function cancelCustomAmount() {
+            closeCustomAmountModal();
+            if (customAmountResolve) {
+                customAmountResolve(null);
+                customAmountResolve = null;
+            }
+        }
+
+        customAmountConfirm.addEventListener('click', confirmCustomAmount);
+        customAmountCancel.addEventListener('click', cancelCustomAmount);
+        customAmountClose.addEventListener('click', cancelCustomAmount);
+
+        customAmountOverlay.addEventListener('click', (e) => {
+            if (e.target === customAmountOverlay) cancelCustomAmount();
+        });
+
+        customAmountInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') confirmCustomAmount();
+            if (e.key === 'Escape') cancelCustomAmount();
+        });
+
+        // ─── Donation System ─────────────────────────────────────────────────────
         let selectedDonationAmount = 0;
 
         // Donation card selection
@@ -118,20 +179,16 @@
         const openPaymentBtn = document.getElementById('openPaymentModal');
         const closeModalBtn = document.getElementById('closeModal');
 
-        openPaymentBtn.addEventListener('click', () => {
+        openPaymentBtn.addEventListener('click', async () => {
             if (selectedDonationAmount === 0) {
                 showToast('Selecciona un monto de donación antes de continuar.', 'warning', 'Monto requerido');
                 return;
             }
 
             if (selectedDonationAmount === 'custom') {
-                const customAmount = prompt('Ingresa el monto que deseas donar (solo números):');
-                if (customAmount && !isNaN(customAmount) && parseInt(customAmount) > 0) {
-                    selectedDonationAmount = parseInt(customAmount);
-                } else {
-                    showToast('Ingresa solo números positivos (ej: 50000).', 'error', 'Monto inválido');
-                    return;
-                }
+                const amount = await openCustomAmountModal();
+                if (amount === null) return;
+                selectedDonationAmount = amount;
             }
 
             // Update modal with selected amount
