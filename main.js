@@ -1,341 +1,174 @@
-        // Toast Notification System
-        function createToastContainer() {
-            let container = document.querySelector('.toast-container');
-            if (!container) {
-                container = document.createElement('div');
-                container.className = 'toast-container';
-                document.body.appendChild(container);
-            }
-            return container;
-        }
+(() => {
+    'use strict';
 
-        function showToast(message, type = 'info', title = '', duration = 4000) {
-            const container = createToastContainer();
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-            const icons = {
-                error: '❌',
-                warning: '⚠️',
-                success: '✅',
-                info: 'ℹ️'
-            };
+    const WA_NUMBER = '573206811424';
+    const waLink = (text) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const money = (n) => '$' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-            const titles = {
-                error: title || 'Error',
-                warning: title || 'Atención',
-                success: title || '¡Listo!',
-                info: title || 'Información'
-            };
+    /* ---------- Menú móvil ---------- */
+    const menuBtn = $('#menuBtn');
+    const sheet = $('#sheet');
 
-            const toast = document.createElement('div');
-            toast.className = `toast toast--${type}`;
-            toast.innerHTML = `
-                <span class="toast__icon">${icons[type] || icons.info}</span>
-                <div class="toast__body">
-                    <div class="toast__title">${titles[type]}</div>
-                    <div class="toast__message">${message}</div>
-                </div>
-                <button class="toast__close" aria-label="Cerrar">&times;</button>
-            `;
+    function setMenu(open) {
+        sheet.hidden = !open;
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
 
-            container.appendChild(toast);
+    menuBtn.addEventListener('click', () => setMenu(sheet.hidden));
+    sheet.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
 
-            const closeBtn = toast.querySelector('.toast__close');
-            const remove = () => {
-                toast.classList.add('hiding');
-                setTimeout(() => {
-                    if (toast.parentNode) toast.remove();
-                }, 300);
-            };
+    /* ---------- Marquesina: duplica el contenido para el bucle infinito ---------- */
+    const track = $('#track');
+    if (track) {
+        [...track.children].forEach((node) => track.appendChild(node.cloneNode(true)));
+    }
 
-            closeBtn.addEventListener('click', remove);
+    /* ---------- Efectos de puntero: foco en tarjetas y botones magnéticos ---------- */
+    if (window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+        document.addEventListener('pointermove', (e) => {
+            const target = e.target instanceof Element ? e.target : null;
+            if (!target) return;
 
-            if (duration > 0) {
-                setTimeout(remove, duration);
-            }
-        }
-
-        // Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            showToast('Te contactaremos pronto.', 'success', '¡Mensaje enviado!');
-            e.target.reset();
-        });
-
-
-        // ─── Custom Amount Modal ───────────────────────────────────────────────
-        const customAmountOverlay = document.getElementById('customAmountOverlay');
-        const customAmountInput = document.getElementById('customAmountInput');
-        const customAmountConfirm = document.getElementById('customAmountConfirm');
-        const customAmountCancel = document.getElementById('customAmountCancel');
-        const customAmountClose = document.getElementById('customAmountClose');
-        let customAmountResolve = null;
-
-        function openCustomAmountModal() {
-            customAmountOverlay.classList.add('active');
-            customAmountInput.value = '';
-            customAmountInput.focus();
-            document.body.style.overflow = 'hidden';
-
-            return new Promise((resolve) => {
-                customAmountResolve = resolve;
-            });
-        }
-
-        function closeCustomAmountModal() {
-            customAmountOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            customAmountInput.blur();
-        }
-
-        function confirmCustomAmount() {
-            const value = customAmountInput.value.trim();
-            if (!value || isNaN(value) || parseInt(value) <= 0) {
-                showToast('Ingresa solo números positivos (ej: 50000).', 'error', 'Monto inválido');
-                customAmountInput.focus();
-                return;
-            }
-            const amount = parseInt(value);
-            closeCustomAmountModal();
-            if (customAmountResolve) {
-                customAmountResolve(amount);
-                customAmountResolve = null;
-            }
-        }
-
-        function cancelCustomAmount() {
-            closeCustomAmountModal();
-            if (customAmountResolve) {
-                customAmountResolve(null);
-                customAmountResolve = null;
-            }
-        }
-
-        customAmountConfirm.addEventListener('click', confirmCustomAmount);
-        customAmountCancel.addEventListener('click', cancelCustomAmount);
-        customAmountClose.addEventListener('click', cancelCustomAmount);
-
-        customAmountOverlay.addEventListener('click', (e) => {
-            if (e.target === customAmountOverlay) cancelCustomAmount();
-        });
-
-        customAmountInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') confirmCustomAmount();
-            if (e.key === 'Escape') cancelCustomAmount();
-        });
-
-        // ─── Donation System ─────────────────────────────────────────────────────
-        let selectedDonationAmount = 0;
-
-        // Donation card selection
-        document.querySelectorAll('.donation-card').forEach(card => {
-            card.addEventListener('click', function () {
-                // Remove selected class from all cards
-                document.querySelectorAll('.donation-card').forEach(c => c.classList.remove('selected'));
-
-                // Add selected class to clicked card
-                this.classList.add('selected');
-
-                // Get amount
-                const amount = this.dataset.amount;
-                if (amount === 'custom') {
-                    selectedDonationAmount = 'custom';
-                } else {
-                    selectedDonationAmount = parseInt(amount);
-                }
-            });
-        });
-
-        // Open payment modal
-        const paymentModal = document.getElementById('paymentModal');
-        const openPaymentBtn = document.getElementById('openPaymentModal');
-        const closeModalBtn = document.getElementById('closeModal');
-
-        openPaymentBtn.addEventListener('click', async () => {
-            if (selectedDonationAmount === 0) {
-                showToast('Selecciona un monto de donación antes de continuar.', 'warning', 'Monto requerido');
-                return;
+            const card = target.closest('.card');
+            if (card) {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                card.style.setProperty('--my', `${e.clientY - r.top}px`);
             }
 
-            if (selectedDonationAmount === 'custom') {
-                const amount = await openCustomAmountModal();
-                if (amount === null) return;
-                selectedDonationAmount = amount;
+            const btn = target.closest('.btn');
+            if (btn) {
+                const r = btn.getBoundingClientRect();
+                btn.style.setProperty('--tx', `${(e.clientX - r.left - r.width / 2) * 0.22}px`);
+                btn.style.setProperty('--ty', `${(e.clientY - r.top - r.height / 2) * 0.32}px`);
             }
+        }, { passive: true });
 
-            // Update modal with selected amount
-            const formattedAmount = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                minimumFractionDigits: 0
-            }).format(selectedDonationAmount);
-
-            document.getElementById('selectedAmountDisplay').textContent = formattedAmount;
-
-            // Show modal
-            paymentModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        // Close modal
-        closeModalBtn.addEventListener('click', () => {
-            closePaymentModal();
-        });
-
-        paymentModal.addEventListener('click', (e) => {
-            if (e.target === paymentModal) {
-                closePaymentModal();
+        document.addEventListener('pointerout', (e) => {
+            const btn = e.target instanceof Element ? e.target.closest('.btn') : null;
+            if (btn && !btn.contains(e.relatedTarget)) {
+                btn.style.setProperty('--tx', '0px');
+                btn.style.setProperty('--ty', '0px');
             }
         });
+    }
 
-        function closePaymentModal() {
-            paymentModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            // Reset payment options
-            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active'));
-            document.querySelectorAll('.payment-info-section').forEach(section => section.classList.remove('active'));
+    /* ---------- Galería con lightbox ---------- */
+    const items = $$('.g');
+    const lb = $('#lightbox');
+    const lbImg = $('#lbImg');
+    const lbCount = $('#lbCount');
+    let current = 0;
+    let opener = null;
+
+    function showPhoto(i) {
+        current = (i + items.length) % items.length;
+        const img = $('img', items[current]);
+        lbImg.src = img.currentSrc || img.src;
+        lbImg.alt = img.alt;
+        lbCount.textContent = `${current + 1} / ${items.length}`;
+    }
+
+    function openLightbox(i, trigger) {
+        opener = trigger;
+        showPhoto(i);
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        $('#lbClose').focus();
+    }
+
+    function closeLightbox() {
+        lb.hidden = true;
+        document.body.style.overflow = '';
+        if (opener) opener.focus();
+    }
+
+    items.forEach((btn, i) => btn.addEventListener('click', () => openLightbox(i, btn)));
+    $('#lbClose').addEventListener('click', closeLightbox);
+    $('#lbPrev').addEventListener('click', () => showPhoto(current - 1));
+    $('#lbNext').addEventListener('click', () => showPhoto(current + 1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            setMenu(false);
         }
+        if (lb.hidden) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPhoto(current - 1);
+        if (e.key === 'ArrowRight') showPhoto(current + 1);
+    });
 
-        // Payment method selection
-        document.querySelectorAll('.payment-option').forEach(option => {
-            option.addEventListener('click', function () {
-                const method = this.dataset.method;
+    /* ---------- Donaciones ---------- */
+    const amountBtns = $$('.amt');
+    const methodBtns = $$('[data-method]');
+    const customBox = $('#customBox');
+    const customInput = $('#monto');
+    const customLow = $('#customLow');
+    const waDonate = $('#waDonate');
+    let amount = 50000;
+    let method = 'nequi';
 
-                // Remove active class from all options
-                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active'));
+    function donationValue() {
+        if (amount !== 'custom') return amount;
+        const n = parseInt(customInput.value, 10);
+        return n >= 1000 ? n : null;
+    }
 
-                // Add active class to selected option
-                this.classList.add('active');
+    function renderDonate() {
+        const value = donationValue();
 
-                // Hide all payment info sections
-                document.querySelectorAll('.payment-info-section').forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                // Show corresponding payment info
-                if (method === 'nequi') {
-                    document.getElementById('nequiInfo').classList.add('active');
-                } else if (method === 'bancolombia') {
-                    document.getElementById('bancolombiaInfo').classList.add('active');
-                } else if (method === 'qr') {
-                    document.getElementById('qrInfo').classList.add('active');
-                }
-            });
+        amountBtns.forEach((btn) => {
+            const on = String(amount) === btn.dataset.amount;
+            btn.classList.toggle('on', on);
+            btn.setAttribute('aria-pressed', String(on));
         });
+        customBox.hidden = amount !== 'custom';
+        customLow.hidden = !(amount === 'custom' && customInput.value !== '' && !value);
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && paymentModal.classList.contains('active')) {
-                closePaymentModal();
-            }
+        $$('.js-amount').forEach((el) => { el.textContent = value ? money(value) : 'el valor que elijas'; });
+
+        methodBtns.forEach((btn) => {
+            const on = btn.dataset.method === method;
+            btn.classList.toggle('on', on);
+            btn.setAttribute('aria-pressed', String(on));
         });
+        $('#panelNequi').hidden = method !== 'nequi';
+        $('#panelQr').hidden = method !== 'qr';
 
-        // ─── Lightbox Gallery ───────────────────────────────────────────────
-        const lightbox      = document.getElementById('lightbox');
-        const lightboxImg   = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev  = document.getElementById('lightboxPrev');
-        const lightboxNext  = document.getElementById('lightboxNext');
-        const galleryItems  = document.querySelectorAll('.gallery-item');
-        let currentIndex    = 0;
+        waDonate.href = waLink(
+            'Hola, acabo de donar ' + (value ? `${money(value)} COP ` : '') +
+            `por ${method === 'nequi' ? 'Nequi' : 'código QR'}. Te envío el comprobante.`
+        );
+    }
 
-        function openLightbox(index) {
-            currentIndex = index;
-            const img = galleryItems[index].querySelector('img');
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    amountBtns.forEach((btn) => btn.addEventListener('click', () => {
+        amount = btn.dataset.amount === 'custom' ? 'custom' : Number(btn.dataset.amount);
+        renderDonate();
+        if (amount === 'custom') customInput.focus();
+    }));
+    methodBtns.forEach((btn) => btn.addEventListener('click', () => { method = btn.dataset.method; renderDonate(); }));
+    customInput.addEventListener('input', renderDonate);
+    renderDonate();
 
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+    /* ---------- Contacto: el formulario abre WhatsApp con el mensaje armado ---------- */
+    const nom = $('#nom');
+    const tel = $('#tel');
+    const msg = $('#msg');
+    const waContact = $('#waContact');
 
-        function showPrev() {
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-            openLightbox(currentIndex);
-        }
+    function renderContact() {
+        waContact.href = waLink(
+            `Hola, soy ${nom.value.trim() || '[mi nombre]'}` +
+            (tel.value.trim() ? ` (tel. ${tel.value.trim()})` : '') + `. ${msg.value.trim()}`
+        );
+    }
 
-        function showNext() {
-            currentIndex = (currentIndex + 1) % galleryItems.length;
-            openLightbox(currentIndex);
-        }
-
-        galleryItems.forEach((item, i) => {
-            item.addEventListener('click', () => openLightbox(i));
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', showPrev);
-        lightboxNext.addEventListener('click', showNext);
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape')      closeLightbox();
-            if (e.key === 'ArrowLeft')   showPrev();
-            if (e.key === 'ArrowRight')  showNext();
-        });
-        // ─── Animated Counters ───────────────────────────────────────────────
-        function animateCounter(el) {
-            const target = parseInt(el.dataset.target, 10);
-            const duration = 2000;
-            const step = Math.ceil(target / (duration / 16));
-            let current = 0;
-
-            const interval = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(interval);
-                    el.textContent = target + '+';
-                } else {
-                    el.textContent = current + '+';
-                }
-            }, 16);
-        }
-
-        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statNumbers.forEach(el => counterObserver.observe(el));
+    [nom, tel, msg].forEach((el) => el.addEventListener('input', renderContact));
+    $('#contactForm').addEventListener('submit', (e) => e.preventDefault());
+    renderContact();
+})();

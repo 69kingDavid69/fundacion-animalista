@@ -7,10 +7,11 @@
     <title>Fundación Animalista por Naturaleza | Rescate y Protección Animal en Cali</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Fundación Animalista por Naturaleza: rescatamos, rehabilitamos y damos en adopción animales en Cali, Colombia. Únete a nuestra misión de protección animal y bienestar ambiental.">
+    <meta name="description" content="Fundación Animalista por Naturaleza: rescatamos, rehabilitamos y damos en adopción animales en Cali, Colombia. Guardería canina y donaciones.">
     <meta name="keywords" content="fundación animalista, adopción animales Cali, rescate animal, protección animal Colombia, guardería canina Cali">
     <meta name="author" content="Fundación Animalista por Naturaleza">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A1E31">
     <link rel="canonical" href="https://fundacion-animalista.vercel.app/">
 
     <!-- Open Graph / Facebook -->
@@ -34,477 +35,332 @@
     <link rel="icon" type="image/png" href="assets/Gemini_Generated_Image_pl74x0pl74x0pl74.png">
     <link rel="apple-touch-icon" href="assets/Gemini_Generated_Image_pl74x0pl74x0pl74.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-img-wrapper">
-                    <img src="assets/logo_optimized.png" alt="Logo Fundación Animalista"
-                        class="logo-img"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <svg width="70" height="70" viewBox="0 0 200 200" class="logo-fallback" style="display: none;">
-                        <circle cx="100" cy="100" r="95" fill="#4FC3F7" stroke="#1E3A5F" stroke-width="3" />
-                        <circle cx="100" cy="120" r="60" fill="#FFD54F" />
-                        <path d="M 60 100 Q 60 60, 80 70 Q 90 50, 100 70 Q 110 50, 120 70 Q 140 60, 140 100"
-                            fill="#81C784" />
-                        <ellipse cx="75" cy="130" rx="20" ry="30" fill="#1E3A5F" />
-                        <ellipse cx="125" cy="130" rx="20" ry="30" fill="#1E3A5F" />
-                        <path d="M 70 130 L 85 110 L 100 130 Z" fill="#FFFFFF" />
-                        <circle cx="90" cy="125" r="3" fill="#1E3A5F" />
-                        <circle cx="110" cy="125" r="3" fill="#1E3A5F" />
-                        <path d="M 95 135 Q 100 140, 105 135" stroke="#1E3A5F" stroke-width="2" fill="none" />
-                        <path d="M 40 80 Q 50 70, 55 80 T 60 90 T 62 100" fill="#81C784" />
-                        <circle cx="160" cy="80" r="4" fill="#EF5350" />
-                        <circle cx="168" cy="85" r="5" fill="#EF5350" />
-                        <circle cx="165" cy="75" r="3" fill="#EF5350" />
-                    </svg>
-                </div>
-                <span>Fundación Animalista</span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#guarderia">Guardería</a></li>
-                <li><a href="#donaciones">Donaciones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#urgente" style="color: var(--accent-red); font-weight: bold;">⚠ Urgente</a></li>
-            </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="assets/WhatsApp%20Video%202026-01-13%20at%2019.26.44.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-        </video>
-        <div class="hero-content">
-            <h1>Protegemos la vida, respeta su naturaleza</h1>
-            <p>Únete a nuestra misión de cuidado y protección para todos los seres sintientes y su entorno</p>
-            <div class="cta-buttons">
-                <a href="#contacto" class="btn btn-primary">Contáctanos</a>
-                <a href="#donaciones" class="btn btn-secondary">Colabora</a>
-            </div>
-        </div>
-    </section>
+<div class="page">
 
-    <!-- Anuncio Urgente - Abby -->
-    <section id="urgente" class="urgente-section">
-        <div class="urgente-badge">⚠ ANUNCIO IMPORTANTE</div>
-        <h2>¡Abby necesita tu ayuda urgente!</h2>
-        <div class="urgente-content">
-            <div class="urgente-video">
-                <video controls playsinline class="urgente-video-player">
-                    <source src="assets/abby.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de video.
-                </video>
-            </div>
-            <div class="urgente-info">
-                <div class="urgente-story">
-                    <p><strong>Abby</strong>, una perrita rescatada en la vía al parecer atropellada, necesita cirugía urgente. Tiene <strong>luxación de cadera</strong> y a pesar de que nuestra fundación está colapsada, no pudimos ser indiferentes y dejarla a su suerte.</p>
-                    <p class="urgente-ayuda">Ayúdanos a ayudarla. <strong>Cualquier ayuda es de gran bendición para ella.</strong></p>
-                </div>
-                <div class="urgente-donacion">
-                    <h3><i class="fas fa-hand-holding-heart"></i> Donaciones</h3>
-                    <div class="donacion-metodos">
-                        <div class="donacion-metodo">
-                            <span class="metodo-icon">💜</span>
-                            <div>
-                                <strong>Nequi</strong>
-                                <p class="metodo-numero">320 681 1424</p>
-                            </div>
-                        </div>
-                        <div class="donacion-metodo">
-                            <span class="metodo-icon">💙</span>
-                            <div>
-                                <strong>Daviplata</strong>
-                                <p class="metodo-numero">320 681 1424</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/573206811424?text=Hola%2C%20quiero%20ayudar%20a%20Abby%20con%20una%20donaci%C3%B3n" target="_blank" class="btn-urgente-whatsapp">
-                        <i class="fab fa-whatsapp"></i> Donar por WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="progress" aria-hidden="true"></div>
 
-    <!-- Stats -->
-    <div class="stats">
-        <div class="stat-item">
-            <div class="stat-number" data-target="300">0</div>
-            <div class="stat-label"><i class="fas fa-heart"></i> Vidas Rescatadas</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" data-target="1000">0</div>
-            <div class="stat-label"><i class="fas fa-paw"></i> Animales Beneficiados</div>
-        </div>
-    </div>
-
-    <!-- Botones compartir en redes sociales -->
-    <div class="share-section">
-        <p class="share-title"><i class="fas fa-share-alt"></i> ¡Comparte nuestra misión y ayuda a más animales!</p>
-        <div class="share-buttons">
-            <a href="https://www.instagram.com/fundanimalistaspnaturaleza2024" target="_blank" rel="noopener" class="share-btn share-instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-        </div>
-    </div>
-
-    <!-- Quiénes Somos -->
-    <section id="quienes-somos">
-        <h2>Quiénes Somos</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p><strong>Fundación Animalista por Naturaleza</strong> nació del amor genuino por los animales y la convicción de que cada vida importa. Somos una organización sin ánimo de lucro con sede en Cali, Colombia, comprometida con la protección, el rescate y el bienestar de animales en situación de vulnerabilidad.</p>
-                <p>Desde nuestros inicios, hemos rescatado, rehabilitado y dado en adopción a más de <strong>300 animales</strong>, trabajando de la mano con familias, voluntarios y aliados que comparten nuestra visión de un mundo más compasivo con los seres sintientes.</p>
-                <p>Además del rescate animal, promovemos la <strong>educación ambiental</strong> en colegios y comunidades, fomentamos la tenencia responsable de mascotas y apoyamos iniciativas de reforestación para proteger los ecosistemas naturales de los que todos dependemos.</p>
-                <p>Nuestro equipo está formado por veterinarios voluntarios, cuidadores comprometidos y una red de familias hogar que brindan amor a los animales mientras esperan su adopción definitiva.</p>
-            </div>
-            <div class="about-image">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.16.05.jpeg" alt="Equipo Fundación Animalista" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">
-            </div>
-        </div>
-
-        <!-- Valores -->
-        <div class="values-grid">
-            <div class="value-item">
-                <div class="value-icon"><i class="fas fa-heart"></i></div>
-                <h3>Compasión</h3>
-                <p>Cada animal es tratado con amor y respeto, sin importar su condición.</p>
-            </div>
-            <div class="value-item">
-                <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
-                <h3>Compromiso</h3>
-                <p>Nos dedicamos al 100% al bienestar animal y la comunidad que nos rodea.</p>
-            </div>
-            <div class="value-item">
-                <div class="value-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Sostenibilidad</h3>
-                <p>Integramos el cuidado animal con la protección del medio ambiente.</p>
-            </div>
-            <div class="value-item">
-                <div class="value-icon"><i class="fas fa-users"></i></div>
-                <h3>Comunidad</h3>
-                <p>Construimos redes de apoyo entre familias, voluntarios y aliados.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galería -->
-    <section id="galeria" class="galeria-section">
-        <h2>Nuestra Galería</h2>
-        <p class="section-subtitle">Momentos especiales de nuestros rescates y actividades</p>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.16.05.jpeg" alt="Rescate animal" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.19.43.jpeg" alt="Animales rescatados" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.20.19.jpeg" alt="Actividades fundación" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.21.01.jpeg" alt="Cuidado animal" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.22.36.jpeg" alt="Rescate y rehabilitación" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.23.11.jpeg" alt="Animales felices" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.24.17.jpeg" alt="Voluntarios" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 19.25.03.jpeg" alt="Animales en adopción" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="assets/WhatsApp Image 2026-01-13 at 21.06.13.jpeg" alt="Eventos fundación" loading="lazy">
-                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
-        <button class="lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-        <button class="lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-        <img src="" alt="" class="lightbox-img" id="lightboxImg">
-    </div>
-
-    <!-- Guardería Canina -->
-    <section id="guarderia">
-        <h2>Servicio de Guardería Canina y Paseos</h2>
-        <p class="section-subtitle">Cuidamos de tu mejor amigo con amor y profesionalismo</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-clock"></i></div>
-                <h3>Horario Flexible</h3>
-                <p>Servicio diurno y nocturno adaptado a tus necesidades</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-running"></i></div>
-                <h3>Actividades</h3>
-                <p>Juegos, ejercicio y socialización diaria</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                <h3>Alimentación</h3>
-                <p>Comida de calidad incluida en el servicio</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-dog"></i></div>
-                <h3>Paseos Caninos</h3>
-                <p>Paseos personalizados con paseadores profesionales</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-camera"></i></div>
-                <h3>Fotos y Videos</h3>
-                <p>Recibe actualizaciones de tu mascota durante su estadía</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Donaciones -->
-    <section id="donaciones">
-        <h2>Haz una Donación</h2>
-        <p class="section-subtitle">Tu apoyo nos ayuda a continuar salvando vidas</p>
-        <div class="donation-options">
-            <div class="donation-card" data-amount="20000">
-                <div class="donation-amount">$20.000</div>
-                <div class="donation-label">Alimento para 1 semana</div>
-            </div>
-            <div class="donation-card" data-amount="50000">
-                <div class="donation-amount">$50.000</div>
-                <div class="donation-label">Vacunas y desparasitación</div>
-            </div>
-            <div class="donation-card" data-amount="100000">
-                <div class="donation-amount">$100.000</div>
-                <div class="donation-label">Esterilización</div>
-            </div>
-            <div class="donation-card" data-amount="custom">
-                <div class="donation-amount">Otro valor</div>
-                <div class="donation-label">Tú decides el monto</div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <button class="btn btn-primary" id="openPaymentModal">Donar Ahora</button>
-        </div>
-    </section>
-
-    <!-- Payment Modal -->
-    <div class="payment-modal" id="paymentModal">
-        <div class="payment-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <div class="payment-header">
-                <h3>Completa tu Donación</h3>
-                <div class="selected-amount" id="selectedAmountDisplay">$0</div>
-                <p style="color: #666; margin-top: 0.5rem;">Selecciona tu método de pago</p>
-            </div>
-
-            <div class="payment-methods">
-                <div class="payment-option" data-method="nequi">
-                    <div class="payment-icon">💜</div>
-                    <div class="payment-details">
-                        <h4>Nequi</h4>
-                        <p>Paga rápido y seguro con Nequi</p>
-                    </div>
-                </div>
-
-                <div class="payment-option" data-method="qr">
-                    <div class="payment-icon">📱</div>
-                    <div class="payment-details">
-                        <h4>Código QR</h4>
-                        <p>Escanea y dona desde tu app bancaria</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nequi Info -->
-            <div class="payment-info-section" id="nequiInfo">
-                <div class="bank-info">
-                    <h4 style="color: var(--dark-blue); margin-bottom: 1rem; text-align: center;">📱 Información Nequi
-                    </h4>
-                    <p><strong>Número:</strong> <span>320 681 1424</span></p>
-                    <p><strong>Nombre:</strong> <span>Fundación Animalista</span></p>
-                    <p style="border: none; margin-top: 1rem; color: #666; font-size: 0.9rem;">
-                        Realiza tu transferencia y envíanos el comprobante por WhatsApp
-                    </p>
-                </div>
-                <button class="confirm-payment-btn"
-                    onclick="window.open('https://wa.me/573206811424?text=Hola, acabo de realizar una donación por Nequi', '_blank')">
-                    Enviar Comprobante por WhatsApp
-                </button>
-            </div>
-
-
-            <!-- QR Code Info -->
-            <div class="payment-info-section" id="qrInfo">
-                <div class="qr-code">
-                    <h4 style="color: var(--dark-blue); margin-bottom: 1rem;">📱 Escanea el Código QR</h4>
-                    <div class="qr-placeholder" style="padding: 0; overflow: hidden;">
-                        <img src="assets/qralejandra.jpeg" alt="QR para donación"
-                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                    </div>
-                    <p style="margin-top: 1rem; color: #666;">
-                        Escanea este código con tu app bancaria para realizar la donación
-                    </p>
-                    <p style="margin-top: 0.5rem; padding: 0.75rem; background: #FFF3E0; border-radius: 8px; color: #E65100; font-weight: 600; font-size: 0.95rem;">
-                        📱 Escanea el QR desde la app de Nequi para hacer la donación
-                    </p>
-                </div>
-                <button class="confirm-payment-btn"
-                    onclick="window.open('https://wa.me/573206811424?text=Hola, acabo de realizar una donación escaneando el QR', '_blank')">
-                    Confirmar Donación
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Contacto -->
-    <section id="contacto">
-        <h2>Contáctanos</h2>
-        <p class="section-subtitle">Estamos aquí para ayudarte</p>
-        <div class="contact-container">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" name="telefono">
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-            </form>
-            <div class="contact-info">
-                <h3>Información de Contacto</h3>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Teléfono:</strong><br>
-                        320 681 1424
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email:</strong><br>
-                        Fundanimalistaspornaturaleza@gmail.com
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>
-                        <strong>Instagram:</strong><br>
-                        <a href="https://instagram.com/fundanimalistaspnaturaleza2024" target="_blank"
-                            style="color: var(--primary-blue);">@fundanimalistaspnaturaleza2024</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Dirección:</strong><br>
-                        Calle 75 Norte # 2-50
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Horario:</strong><br>
-                        8:00 AM - 9:00 PM
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Google Maps -->
-        <div class="map-container">
-            <h3><i class="fas fa-map-marker-alt"></i> Cómo Llegar</h3>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.0!2d-76.5280!3d3.4720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f7c3a3a3a3%3A0x1234567890abcdef!2sCalle%2075%20Norte%20%232-50%2C%20Cali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1711234567890!5m2!1ses!2sco"
-                width="100%"
-                height="350"
-                style="border:0; border-radius: 12px;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Mapa Fundación Animalista - Calle 75 Norte #2-50, Cali">
-            </iframe>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Fundación Animalista por Naturaleza. Todos los derechos reservados.</p>
-        <p>Protegemos la vida, respeta su naturaleza 🌿🐾</p>
-    </footer>
-
-
-
-    <!-- Custom Amount Modal -->
-    <div class="custom-amount-overlay" id="customAmountOverlay">
-        <div class="custom-amount-modal">
-            <button class="custom-amount-close" id="customAmountClose">&times;</button>
-            <div class="custom-amount-header">
-                <span class="custom-amount-icon">💰</span>
-                <h4>Ingresa tu donación</h4>
-                <p>Escribe el monto que deseas donar</p>
-            </div>
-            <div class="custom-amount-body">
-                <div class="custom-amount-input-group">
-                    <span class="custom-amount-currency">$</span>
-                    <input type="number" id="customAmountInput" class="custom-amount-input"
-                        placeholder="50000" min="1000" step="1000" autofocus>
-                </div>
-                <p class="custom-amount-hint">Mínimo $1.000 COP</p>
-            </div>
-            <div class="custom-amount-actions">
-                <button class="custom-amount-btn custom-amount-btn--cancel" id="customAmountCancel">Cancelar</button>
-                <button class="custom-amount-btn custom-amount-btn--confirm" id="customAmountConfirm">Confirmar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/573206811424" target="_blank" class="whatsapp-float" title="Chatea con nosotros">
-        <i class="fab fa-whatsapp"></i>
+<!-- NAV -->
+<div class="navwrap">
+  <header class="nav">
+    <a class="brand" href="#inicio" aria-label="Fundación Animalista por Naturaleza, inicio">
+      <img src="assets/logo_optimized.png" alt="" width="44" height="44">
+      <span>Animalistas por Naturaleza</span>
     </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#quienes-somos">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#guarderia">Guardería</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="#donaciones">Donar</a>
+    </nav>
+    <button class="burger" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sheet">
+      <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="sheet" id="sheet" aria-label="Menú móvil" hidden>
+      <a href="#quienes-somos">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#guarderia">Guardería</a>
+      <a href="#donaciones">Donar</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+</div>
 
-    <script src="main.js"></script>
+<main id="contenido">
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="chip"><span class="dot green"></span>Fundación sin ánimo de lucro · Cali, Colombia</div>
+      <h1 class="display">
+        <span class="w" style="--i:0">Protegemos</span> <span class="w" style="--i:1">la</span> <span class="w" style="--i:2">vida,</span><br>
+        <span class="w" style="--i:3">respeta</span> <span class="w" style="--i:4">su</span>
+        <span class="w hl" style="--i:5">naturaleza<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 9 C 45 2, 100 2, 130 7 S 185 10, 197 4"/></svg></span>
+      </h1>
+      <p class="lead">Rescatamos, rehabilitamos y damos en adopción a animales en situación de vulnerabilidad. Únete a una comunidad que cuida a todos los seres sintientes y su entorno.</p>
+      <div class="cta-row">
+        <a class="btn sun" href="#donaciones">Donar ahora
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        <a class="btn ghost" href="#quienes-somos">Conoce la fundación</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>+300</strong><span>vidas rescatadas</span></div>
+        <div><strong>+1.000</strong><span>animales beneficiados</span></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="sun-orb" aria-hidden="true"></div>
+      <div class="arch"><img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.16.05.jpeg" alt="Voluntarios de la fundación rodeados de perros rescatados en un parque" fetchpriority="high"></div>
+      <div class="glass g2">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--sun)"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.5 12 21 12 21z"/></svg>
+        <span><b>Hogares de paso</b>mientras llega la adopción</span>
+      </div>
+      <div class="ring" aria-hidden="true">
+        <svg class="spin" viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs><text><textPath href="#circ" textLength="280" lengthAdjust="spacing">RESCATAMOS · REHABILITAMOS · ADOPTAMOS · </textPath></text></svg>
+        <svg class="ic" viewBox="0 0 24 24" style="width:40px;height:40px;fill:var(--ink);stroke:none"><circle cx="6" cy="11" r="1.9"/><circle cx="10" cy="6.5" r="1.9"/><circle cx="14" cy="6.5" r="1.9"/><circle cx="18" cy="11" r="1.9"/><path d="M12 12c-3 0-5 3-5 5.2 0 1.6 1.3 2.3 2.6 2.3 1 0 1.5-.4 2.4-.4s1.4.4 2.4.4c1.3 0 2.6-.7 2.6-2.3C17 15 15 12 12 12z"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE (main.js duplica el contenido para el bucle) -->
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Rescatamos<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Rehabilitamos<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Damos en adopción<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Educación ambiental<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Tenencia responsable<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+    <span>Reforestación<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg></span>
+  </div>
+</div>
+
+<!-- QUIÉNES SOMOS -->
+<section class="sec" id="quienes-somos">
+  <div class="wrap">
+    <div class="about">
+      <div class="rv">
+        <span class="kicker">Quiénes somos</span>
+        <h2 class="h2" style="margin:18px 0 28px">Cada vida importa. Por eso no miramos a otro lado.</h2>
+        <p><strong>Fundación Animalista por Naturaleza</strong> nació del amor genuino por los animales. Somos una organización sin ánimo de lucro con sede en Cali, comprometida con la protección, el rescate y el bienestar de animales en situación de vulnerabilidad.</p>
+        <p>Hemos rescatado, rehabilitado y dado en adopción a más de <strong>300 animales</strong>, junto a familias, voluntarios y aliados que comparten la visión de un mundo más compasivo.</p>
+        <p>Nuestro equipo reúne veterinarios voluntarios, cuidadores comprometidos y una red de familias de hogar de paso que dan amor a cada animal mientras espera su adopción definitiva.</p>
+        <div class="pills">
+          <span>Rescate y adopción</span><span>Educación ambiental</span><span>Tenencia responsable</span><span>Reforestación</span>
+        </div>
+      </div>
+      <div class="photo rv d1">
+        <div class="main"><img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.22.36.jpeg" alt="Voluntaria con perros rescatados" loading="lazy"></div>
+        <div class="stat-card"><div class="count" style="--n:300" aria-label="Más de 300"></div><span>vidas rescatadas</span></div>
+        <div class="stat-card"><div class="count" style="--n:1000" aria-label="Más de 1000"></div><span>animales beneficiados</span></div>
+      </div>
+    </div>
+
+    <div class="bento">
+      <article class="card c-a rv">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.5 12 21 12 21z"/></svg></div>
+        <h3>Compasión</h3>
+        <p>Cada animal es tratado con amor y respeto, sin importar su condición.</p>
+      </article>
+      <article class="card c-b rv d1">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Compromiso</h3>
+        <p>Nos dedicamos al 100% al bienestar animal y a la comunidad que nos rodea.</p>
+      </article>
+      <article class="card c-c rv">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c-9 0-15 4-15 12 0 1.5.3 3 1 4 8 0 14-5 14-16z"/><path d="M6 20c3-6 6-9 10-12"/></svg></div>
+        <h3>Sostenibilidad</h3>
+        <p>Integramos el cuidado animal con la protección del medio ambiente.</p>
+      </article>
+      <article class="card c-d rv d1">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Comunidad</h3>
+        <p>Construimos redes de apoyo entre familias, voluntarios y aliados.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="sec gal" id="galeria">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Galería</span>
+      <h2 class="h2" style="margin-top:18px">Momentos que nos mueven</h2>
+      <p class="sub">Rescates, paseos y encuentros con los animales y las personas que los cuidan.</p>
+    </div>
+    <div class="gal-grid">
+      <button class="g s7 rv" type="button" aria-label="Ampliar foto 1: perros rescatados reunidos en grupo">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.19.43.jpeg" alt="Perros rescatados reunidos en grupo" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+      <button class="g s5 rv" type="button" aria-label="Ampliar foto 2: voluntaria rodeada de perros en un campo">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.22.36.jpeg" alt="Voluntaria rodeada de perros en un campo" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+      <button class="g s5 rv" type="button" aria-label="Ampliar foto 3: voluntaria sosteniendo a un perro pequeño">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.23.11.jpeg" alt="Voluntaria sosteniendo a un perro pequeño" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+      <button class="g s7 rv" type="button" aria-label="Ampliar foto 4: voluntaria dando premios a los perros">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.24.17.jpeg" alt="Voluntaria dando premios a los perros" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+      <button class="g s6 rv" type="button" aria-label="Ampliar foto 5: voluntaria cuidando perros con pañoletas">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2019.25.03.jpeg" alt="Voluntaria cuidando perros con pañoletas" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+      <button class="g s6 rv" type="button" aria-label="Ampliar foto 6: paseo grupal con perros y paseadores">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2021.06.13.jpeg" alt="Paseo grupal con perros y paseadores" loading="lazy">
+        <span class="zoom"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GUARDERÍA -->
+<section class="sec" id="guarderia">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Servicios</span>
+      <h2 class="h2" style="margin-top:18px">Guardería canina y paseos</h2>
+      <p class="sub">Cuidamos de tu mejor amigo con amor y profesionalismo.</p>
+    </div>
+    <div class="bento svc" style="margin-top:60px">
+      <article class="card sv3 rv">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Horario flexible</h3>
+        <p>Servicio diurno y nocturno, adaptado a lo que necesitas.</p>
+      </article>
+      <article class="card sv3 rv d1">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <h3>Actividades</h3>
+        <p>Juegos, ejercicio y socialización todos los días.</p>
+      </article>
+      <article class="card sv2 rv">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-2 2-2 2-4M14 7c0-2 2-2 2-4"/></svg></div>
+        <h3>Alimentación</h3>
+        <p>Comida de calidad incluida en el servicio.</p>
+      </article>
+      <article class="card sv2 photo-card rv d1">
+        <img src="assets/WhatsApp%20Image%202026-01-13%20at%2021.06.13.jpeg" alt="Paseo grupal de perros con paseadores" loading="lazy">
+        <div class="shade"></div>
+        <div class="txt"><h3>Paseos caninos</h3><p>Paseos personalizados con paseadores profesionales.</p></div>
+      </article>
+      <article class="card sv2 rv d2">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
+        <h3>Fotos y videos</h3>
+        <p>Recibe actualizaciones de tu mascota durante su estadía.</p>
+      </article>
+    </div>
+    <div class="svc-cta">
+      <a class="btn dark" href="https://wa.me/573206811424?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20guarder%C3%ADa%20canina" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6L3 21z"/></svg>Pregunta por la guardería</a>
+    </div>
+  </div>
+</section>
+
+<!-- DONACIONES -->
+<section class="sec dark-sec" id="donaciones">
+  <div class="wrap donate">
+    <div class="rv">
+      <span class="kicker" style="color:var(--sun)">Donaciones</span>
+      <h2 class="h2" style="margin:18px 0 22px">Tu aporte sigue salvando vidas</h2>
+      <p class="sub" style="color:var(--muted-d)">Elige un valor, paga por Nequi o con QR y envíanos el comprobante por WhatsApp. Así podemos agradecerte y cuidar cada peso.</p>
+    </div>
+    <div class="panel rv d1">
+      <span class="lbl">1 · Elige un valor</span>
+      <div class="amounts">
+        <button class="amt" type="button" data-amount="20000" aria-pressed="false"><b>$20.000</b><small>Alimento para 1 semana</small></button>
+        <button class="amt on" type="button" data-amount="50000" aria-pressed="true"><b>$50.000</b><small>Vacunas y desparasitación</small></button>
+        <button class="amt" type="button" data-amount="100000" aria-pressed="false"><b>$100.000</b><small>Esterilización</small></button>
+        <button class="amt" type="button" data-amount="custom" aria-pressed="false"><b>Otro valor</b><small>Tú decides el monto</small></button>
+      </div>
+      <div id="customBox" style="margin-top:14px" hidden>
+        <label class="lbl" for="monto">Tu monto (COP)</label>
+        <input class="field" id="monto" type="number" inputmode="numeric" min="1000" step="1000" placeholder="50000">
+        <p class="note" id="customLow" hidden>El mínimo es $1.000 COP.</p>
+      </div>
+
+      <div class="seg" role="group" aria-label="Método de pago">
+        <button class="on" type="button" data-method="nequi" aria-pressed="true">Nequi</button>
+        <button type="button" data-method="qr" aria-pressed="false">Código QR</button>
+      </div>
+
+      <div class="slip" id="panelNequi">
+        <div><span>Número</span><b>320 681 1424</b></div>
+        <div><span>Nombre</span><b>Fundación Animalista</b></div>
+        <div><span>Valor</span><b class="js-amount">$50.000</b></div>
+      </div>
+      <div class="qr" id="panelQr" hidden>
+        <img src="assets/qralejandra.jpeg" alt="Código QR para donar por Nequi" loading="lazy">
+        <p style="color:var(--muted-d);font-size:16px">Escanea este código desde la app de Nequi y dona <strong style="color:#fff" class="js-amount">$50.000</strong>.</p>
+      </div>
+
+      <a class="btn sun" id="waDonate" style="width:100%;margin-top:22px" href="https://wa.me/573206811424" target="_blank" rel="noopener">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6L3 21z"/></svg>Enviar comprobante por WhatsApp</a>
+      <p class="fine">Realiza primero tu transferencia y luego comparte el comprobante.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="sec" id="contacto">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Contacto</span>
+      <h2 class="h2" style="margin-top:18px">Estamos aquí para ayudarte</h2>
+      <p class="sub">Escríbenos para adoptar, ser voluntario, preguntar por la guardería o sumarte como aliado.</p>
+    </div>
+    <div class="contact">
+      <div class="info rv">
+        <div class="row"><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><small>Teléfono</small><b>320 681 1424</b></div></div>
+        <div class="row"><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><small>Correo</small><b>Fundanimalistaspornaturaleza@gmail.com</b></div></div>
+        <a class="row" href="https://instagram.com/fundanimalistaspnaturaleza2024" target="_blank" rel="noopener"><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></div><div><small>Instagram</small><b>@fundanimalistaspnaturaleza2024</b></div></a>
+        <a class="row" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+75+Norte+%232-50+Cali" target="_blank" rel="noopener"><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><small>Dirección · ver en el mapa</small><b>Calle 75 Norte # 2-50, Cali</b></div></a>
+        <div class="row"><div class="ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>Horario</small><b>8:00 AM – 9:00 PM</b></div></div>
+      </div>
+
+      <form class="form rv d1" id="contactForm">
+        <div class="two">
+          <div><label for="nom">Nombre completo</label><input class="field" id="nom" type="text" autocomplete="name"></div>
+          <div><label for="tel">Teléfono (opcional)</label><input class="field" id="tel" type="tel" autocomplete="tel"></div>
+        </div>
+        <div><label for="msg">Mensaje</label><textarea class="field" id="msg" rows="5"></textarea></div>
+        <a class="btn sun" id="waContact" href="https://wa.me/573206811424" target="_blank" rel="noopener">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6L3 21z"/></svg>Enviar por WhatsApp</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#inicio"><img src="assets/logo_optimized.png" alt="" width="44" height="44"><span>Fundación Animalista por Naturaleza</span></a>
+        <p>Protegemos la vida, respeta su naturaleza.</p>
+      </div>
+      <nav aria-label="Pie de página">
+        <a href="#quienes-somos">Nosotros</a><a href="#galeria">Galería</a><a href="#guarderia">Guardería</a><a href="#donaciones">Donar</a><a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="giant" aria-hidden="true">Animalistas</div>
+    <div class="legal"><span>© 2026 Fundación Animalista por Naturaleza. Todos los derechos reservados.</span><span>Cali, Colombia</span></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/573206811424" target="_blank" rel="noopener" aria-label="Chatea con nosotros por WhatsApp">
+  <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6L3 21z"/></svg><span>Escríbenos</span>
+</a>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de fotos" hidden>
+  <img id="lbImg" alt="">
+  <button class="x" type="button" id="lbClose" aria-label="Cerrar"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="pv" type="button" id="lbPrev" aria-label="Foto anterior"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nx" type="button" id="lbNext" aria-label="Foto siguiente"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <small id="lbCount"></small>
+</div>
+
+<script src="main.js" defer></script>
 </body>
 
 </html>
