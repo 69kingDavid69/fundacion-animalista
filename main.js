@@ -103,6 +103,47 @@
         if (e.key === 'ArrowRight') showPhoto(current + 1);
     });
 
+    /* ---------- Configurador de placas para mascotas ---------- */
+    const petName = $('#pn');
+    const petTel = $('#pt');
+    const shapeBtns = $$('[data-shape]');
+    const waTag = $('#waTag');
+    const tagSvg = $('#tagSvg');
+    const shapeLabels = { bone: 'Hueso', circle: 'Círculo', heart: 'Corazón' };
+    let shape = 'bone';
+
+    function renderTag() {
+        const name = petName.value.trim() || 'Tu mascota';
+        const phone = petTel.value.trim();
+        const len = Math.max(name.length, 1);
+        const size = shape === 'bone' ? Math.min(46, Math.floor(330 / len)) : Math.min(36, Math.floor(220 / len));
+
+        $$('[data-tag="name"]').forEach((el) => { el.textContent = name; });
+        $$('[data-tag="tel"]').forEach((el) => { el.textContent = phone || '3XX XXX XXXX'; });
+        $$('[data-tag-size]').forEach((el) => { el.setAttribute('font-size', size); });
+        $$('[data-tag-y="bone"]').forEach((el) => { el.setAttribute('y', Math.round(100 + size * 0.36)); });
+        $$('[data-tag-y="round"]').forEach((el) => { el.setAttribute('y', Math.round(100 + size * 0.3)); });
+
+        // Los elementos SVG no tienen la propiedad .hidden, hay que usar el atributo
+        Object.keys(shapeLabels).forEach((key) => { $(`#g-${key}`).toggleAttribute('hidden', key !== shape); });
+        shapeBtns.forEach((btn) => {
+            const on = btn.dataset.shape === shape;
+            btn.classList.toggle('on', on);
+            btn.setAttribute('aria-pressed', String(on));
+        });
+
+        tagSvg.setAttribute('aria-label', `Vista previa de la placa grabada con el nombre ${name}`);
+        waTag.href = waLink(
+            `Hola, quiero una placa personalizada para mi mascota. Forma: ${shapeLabels[shape]}. Nombre: ${name}` +
+            (phone ? `. Teléfono en la placa: ${phone}` : '') + '.'
+        );
+    }
+
+    petName.addEventListener('input', renderTag);
+    petTel.addEventListener('input', renderTag);
+    shapeBtns.forEach((btn) => btn.addEventListener('click', () => { shape = btn.dataset.shape; renderTag(); }));
+    renderTag();
+
     /* ---------- Donaciones ---------- */
     const amountBtns = $$('.amt');
     const methodBtns = $$('[data-method]');

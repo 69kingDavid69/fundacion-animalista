@@ -163,6 +163,50 @@ h1.display{font-family:var(--display);font-weight:800;font-size:clamp(46px,6.4vw
 .card.photo-card p{color:#DCE7F1}
 .svc-cta{display:flex;justify-content:center;margin-top:48px}
 
+/* ---------- Taller láser ---------- */
+.taller{background:var(--paper2)}
+.taller-head{display:flex;flex-wrap:wrap;gap:36px 56px;justify-content:space-between;align-items:flex-end}
+.mats{display:flex;flex-wrap:wrap;gap:10px;max-width:470px}
+.mats span{padding:10px 16px;border-radius:999px;background:#fff;border:1px solid rgba(10,30,49,.12);font-weight:600;font-size:14px}
+.spec{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;color:var(--muted);font-size:15px}
+.spec b{color:var(--ink);font-family:var(--display);font-size:22px;margin-right:6px;letter-spacing:-.01em}
+.lab{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;margin-top:56px}
+.lab-form{border-radius:36px;padding:40px;background:var(--ink);color:#fff;display:grid;gap:20px;align-content:start}
+.lab-form h3{font-family:var(--display);font-weight:700;font-size:32px;line-height:1.05;letter-spacing:-.025em}
+.lab-form p{color:var(--muted-d)}
+.lab-form .lbl{margin-bottom:10px}
+.shapes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shape{min-height:52px;border-radius:18px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);font-weight:600;transition:transform .5s var(--spring),background .3s}
+.shape:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+.shape.on{background:var(--sun);border-color:var(--sun);color:var(--ink)}
+.lab-prev{position:relative;border-radius:36px;overflow:hidden;min-height:460px;display:grid;place-items:center;padding:28px;background:linear-gradient(90deg,#7A5230,#8A6038 30%,#74502D 62%,#85592F);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.lab-prev::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(88deg,rgba(40,20,4,.16) 0 2px,transparent 2px 12px)}
+.lab-prev svg{position:relative;width:min(100%,520px);filter:drop-shadow(0 22px 22px rgba(30,14,2,.5))}
+.beam{position:absolute;top:0;bottom:0;left:6%;width:3px;background:linear-gradient(180deg,transparent,#7FB2FF,transparent);box-shadow:0 0 22px 6px rgba(88,140,255,.55);animation:scan 6s ease-in-out infinite alternate}
+.lab-chip{position:absolute;left:22px;top:22px;padding:8px 14px;border-radius:999px;background:rgba(10,30,49,.7);color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.etext{font-family:var(--display);font-weight:700;fill:#4A2C12;letter-spacing:.01em}
+.eng{fill:none;stroke:#4A2C12;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1}
+.prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:18px;margin-top:18px}
+.prods:has(.card:hover) .card:not(:hover){opacity:.62}
+.prod{padding:14px 14px 18px;display:flex;flex-direction:column}
+.wood{position:relative;aspect-ratio:3/2;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#E8C791,#D5A96A)}
+.wood::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(92deg,rgba(120,70,20,.09) 0 2px,transparent 2px 10px)}
+.wood svg{position:relative;width:100%;height:100%}
+.prod:hover .eng{filter:drop-shadow(0 0 3px rgba(255,120,30,.9))}
+.prod h3{font-size:22px;margin:18px 8px 6px}
+.prod p{margin:0 8px;font-size:15px;flex-grow:1}
+.ask{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:10px 8px 0;font-weight:700;font-size:15px;color:var(--ink)}
+.ask .ic{width:18px;height:18px;transition:transform .5s var(--spring)}
+.ask:hover .ic{transform:translate(3px,-3px)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:28px;margin-top:64px}
+.step{padding-top:22px;border-top:2px solid var(--ink)}
+.step b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.12em;color:var(--leaf-d);margin-bottom:10px}
+.step h3{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
+.step p{color:var(--muted);font-size:16px}
+.cause{margin-top:56px;border-radius:36px;background:var(--leaf);color:var(--ink);padding:36px 44px;display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:space-between;align-items:center}
+.cause h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.05;letter-spacing:-.03em}
+.cause p{margin-top:8px;color:#183508;max-width:560px}
+
 /* ---------- Donar ---------- */
 .dark-sec{background:var(--ink);color:#fff;position:relative;overflow:hidden}
 .dark-sec::before{content:"";position:absolute;width:620px;height:620px;left:-200px;bottom:-240px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sun) 28%,transparent),transparent 68%)}
@@ -237,7 +281,8 @@ footer{background:var(--ink);color:#fff;padding:96px 0 0;overflow:hidden}
 @keyframes sunmove{to{transform:translateY(180px) scale(1.12)}}
 @keyframes bar{to{transform:scaleX(1)}}
 @keyframes titleSlide{from{letter-spacing:.08em;opacity:0}to{letter-spacing:-.05em;opacity:1}}
-
+@keyframes burn{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes scan{from{left:6%}to{left:94%}}
 
 /* ---------- Animaciones ligadas al scroll (mejora progresiva) ---------- */
 @supports (animation-timeline:view()){
@@ -249,13 +294,15 @@ footer{background:var(--ink);color:#fff;padding:96px 0 0;overflow:hidden}
   .rv.d3{animation-range:entry 18% entry 60%}
   .count{animation:countup linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
   .giant{animation:titleSlide linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  .eng{animation:burn linear both;animation-timeline:view();animation-range:entry 10% entry 85%}
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width:1020px){
   .links{display:none}
   .burger{display:inline-flex}
-  .hero-grid,.about,.donate,.contact{grid-template-columns:minmax(0,1fr);gap:56px}
+  .hero-grid,.about,.donate,.contact,.lab{grid-template-columns:minmax(0,1fr);gap:56px}
+  .lab{gap:18px}
   .hero-grid{padding-top:140px}
   .stage{width:min(100%,420px);margin-top:20px}
   .c-a,.c-b,.c-c,.c-d{grid-column:span 6}
