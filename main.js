@@ -21,6 +21,21 @@
     menuBtn.addEventListener('click', () => setMenu(sheet.hidden));
     sheet.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
 
+    /* ---------- Botón flotante de WhatsApp (dos números) ---------- */
+    const waWrap = $('#waWrap');
+    const waBtn = $('#waBtn');
+    const waMenu = $('#waMenu');
+
+    function setWaMenu(open) {
+        waMenu.hidden = !open;
+        waBtn.setAttribute('aria-expanded', String(open));
+    }
+
+    waBtn.addEventListener('click', () => setWaMenu(waMenu.hidden));
+    document.addEventListener('click', (e) => {
+        if (!waWrap.contains(e.target)) setWaMenu(false);
+    });
+
     /* ---------- Marquesina: duplica el contenido para el bucle infinito ---------- */
     const track = $('#track');
     if (track) {
@@ -96,6 +111,7 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             setMenu(false);
+            setWaMenu(false);
         }
         if (lb.hidden) return;
         if (e.key === 'Escape') closeLightbox();
